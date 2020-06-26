@@ -6,49 +6,51 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface ButtonComponent {
-        "text": string;
-    }
     interface CardComponent {
         "name": string;
     }
+    interface GButton {
+        "disabled": boolean;
+        "text": string;
+    }
 }
 declare global {
-    interface HTMLButtonComponentElement extends Components.ButtonComponent, HTMLStencilElement {
-    }
-    var HTMLButtonComponentElement: {
-        prototype: HTMLButtonComponentElement;
-        new (): HTMLButtonComponentElement;
-    };
     interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {
     }
     var HTMLCardComponentElement: {
         prototype: HTMLCardComponentElement;
         new (): HTMLCardComponentElement;
     };
+    interface HTMLGButtonElement extends Components.GButton, HTMLStencilElement {
+    }
+    var HTMLGButtonElement: {
+        prototype: HTMLGButtonElement;
+        new (): HTMLGButtonElement;
+    };
     interface HTMLElementTagNameMap {
-        "button-component": HTMLButtonComponentElement;
         "card-component": HTMLCardComponentElement;
+        "g-button": HTMLGButtonElement;
     }
 }
 declare namespace LocalJSX {
-    interface ButtonComponent {
-        "text"?: string;
-    }
     interface CardComponent {
         "name"?: string;
     }
+    interface GButton {
+        "disabled"?: boolean;
+        "text"?: string;
+    }
     interface IntrinsicElements {
-        "button-component": ButtonComponent;
         "card-component": CardComponent;
+        "g-button": GButton;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "button-component": LocalJSX.ButtonComponent & JSXBase.HTMLAttributes<HTMLButtonComponentElement>;
             "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
+            "g-button": LocalJSX.GButton & JSXBase.HTMLAttributes<HTMLGButtonElement>;
         }
     }
 }

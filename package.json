@@ -9,6 +9,9 @@
     "@stencil/core": "1.15.0"
   },
   "scripts": {
-    "start-dev": "stencil build --dev --serve --watch --es5"
+    "start-dev": "stencil build --dev --serve --watch"
+  },
+  "devDependencies": {
+    "@stencil/sass": "^1.3.2"
   }
 }
