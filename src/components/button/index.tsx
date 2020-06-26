@@ -6,13 +6,17 @@ import { Component, Prop, h } from '@stencil/core';
 export class Button {
 
   // Indicate that name should be a public property on the component
-  @Prop() name: string;
+  @Prop() text: string;
 
+  // Slot is similar to children in react
   render() {
     return (
-      <p>
-        My name is {this.name}
-      </p>
+      <button>
+        <span>1</span>
+        <slot />
+        <span>2</span>
+        {this.text}
+      </button>
     );
   }
 }

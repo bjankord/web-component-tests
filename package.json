@@ -7,5 +7,8 @@
   "license": "MIT",
   "dependencies": {
     "@stencil/core": "1.15.0"
+  },
+  "scripts": {
+    "server": "stencil build --dev --serve --watch --es5"
   }
 }
