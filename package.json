@@ -1,0 +1,11 @@
+{
+  "name": "web-component-tests",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bjankord/web-component-tests.git",
+  "author": "Sam Livingston <samlivingston2013@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@stencil/core": "1.15.0"
+  }
+}
