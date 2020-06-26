@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Stencil files
+.stencil/
+www/
+
+# Mac files
+.DS_Store
+Thumbs.db
