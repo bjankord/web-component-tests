@@ -13,6 +13,14 @@ export namespace Components {
         "disabled": boolean;
         "text": string;
     }
+    interface GTab {
+        "active": boolean;
+        "disabled": boolean;
+        "label": string;
+    }
+    interface GTabs {
+        "openTab": (index: number) => Promise<void>;
+    }
 }
 declare global {
     interface HTMLCardComponentElement extends Components.CardComponent, HTMLStencilElement {
@@ -27,9 +35,23 @@ declare global {
         prototype: HTMLGButtonElement;
         new (): HTMLGButtonElement;
     };
+    interface HTMLGTabElement extends Components.GTab, HTMLStencilElement {
+    }
+    var HTMLGTabElement: {
+        prototype: HTMLGTabElement;
+        new (): HTMLGTabElement;
+    };
+    interface HTMLGTabsElement extends Components.GTabs, HTMLStencilElement {
+    }
+    var HTMLGTabsElement: {
+        prototype: HTMLGTabsElement;
+        new (): HTMLGTabsElement;
+    };
     interface HTMLElementTagNameMap {
         "card-component": HTMLCardComponentElement;
         "g-button": HTMLGButtonElement;
+        "g-tab": HTMLGTabElement;
+        "g-tabs": HTMLGTabsElement;
     }
 }
 declare namespace LocalJSX {
@@ -40,9 +62,19 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "text"?: string;
     }
+    interface GTab {
+        "active"?: boolean;
+        "disabled"?: boolean;
+        "label"?: string;
+    }
+    interface GTabs {
+        "onChange"?: (event: CustomEvent<any>) => void;
+    }
     interface IntrinsicElements {
         "card-component": CardComponent;
         "g-button": GButton;
+        "g-tab": GTab;
+        "g-tabs": GTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -51,6 +83,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "card-component": LocalJSX.CardComponent & JSXBase.HTMLAttributes<HTMLCardComponentElement>;
             "g-button": LocalJSX.GButton & JSXBase.HTMLAttributes<HTMLGButtonElement>;
+            "g-tab": LocalJSX.GTab & JSXBase.HTMLAttributes<HTMLGTabElement>;
+            "g-tabs": LocalJSX.GTabs & JSXBase.HTMLAttributes<HTMLGTabsElement>;
         }
     }
 }
